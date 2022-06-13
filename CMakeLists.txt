@@ -16,18 +16,19 @@ else()
     set(CMAKE_BUILD_TYPE DEBUG)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -O0")
 endif()
-message(STATUS "Building ${CMAKE_PROJECT_NAME} in ${CMAKE_BUILD_TYPE} mode")
+message(STATUS "Building ${PROJECT_NAME} in ${CMAKE_BUILD_TYPE} mode")
 
 #------------------- FILE IDENTIFICATION --------------------------------------
 
-set(FAST_CPP_CSV_PARSER_LIB ${CMAKE_PROJECT_NAME})
+set(FAST_CPP_CSV_PARSER_LIB ${PROJECT_NAME})
 set(FAST_CPP_CSV_PARSER_SRC
-    csv.h
+    include/fast-cpp-csv-parser/csv.h
 )
 
 #------------------- LIBRARY DECLARATION --------------------------------------
 
 add_library(${FAST_CPP_CSV_PARSER_LIB} ${FAST_CPP_CSV_PARSER_SRC})
+target_include_directories(${FAST_CPP_CSV_PARSER_LIB} INTERFACE include)
 set_target_properties(${FAST_CPP_CSV_PARSER_LIB} PROPERTIES
     LINKER_LANGUAGE CXX
 )
