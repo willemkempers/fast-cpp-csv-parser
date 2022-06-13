@@ -22,13 +22,12 @@ message(STATUS "Building ${PROJECT_NAME} in ${CMAKE_BUILD_TYPE} mode")
 
 set(FAST_CPP_CSV_PARSER_LIB ${PROJECT_NAME})
 set(FAST_CPP_CSV_PARSER_SRC
-    include/fast-cpp-csv-parser/csv.h
+    csv.h
 )
 
 #------------------- LIBRARY DECLARATION --------------------------------------
 
 add_library(${FAST_CPP_CSV_PARSER_LIB} ${FAST_CPP_CSV_PARSER_SRC})
-target_include_directories(${FAST_CPP_CSV_PARSER_LIB} INTERFACE include)
 set_target_properties(${FAST_CPP_CSV_PARSER_LIB} PROPERTIES
     LINKER_LANGUAGE CXX
 )
